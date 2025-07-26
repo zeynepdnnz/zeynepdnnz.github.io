@@ -23,6 +23,17 @@
       margin-bottom: 4rem;
       animation: fadeInDown 1s ease;
     }
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .header-wrapper img {
+      width: 96px;
+      height: auto;
+      image-rendering: pixelated;
+    }
     header h1 {
       font-size: 3rem;
       font-weight: 800;
@@ -104,8 +115,13 @@
 </head>
 <body>
   <header>
-    <h1>Zeynep Deniz</h1>
-    <p>Computer Science Student | AI & Data Science Enthusiast</p>
+    <div class="header-wrapper">
+      <img src="waving_character.gif" alt="Pixel Character" />
+      <div>
+        <h1>Zeynep Deniz</h1>
+        <p>Computer Science Student | AI & Data Science Enthusiast</p>
+      </div>
+    </div>
   </header>
 
   <nav>
@@ -142,3 +158,4 @@
   </footer>
 </body>
 </html>
+
