@@ -33,16 +33,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.1rem; /* boşluk küçültüldü */
       font-size: 3rem;
       font-weight: 800;
+      line-height: 1;
+      margin-top: -10px;
+      gap: 0.1rem;
     }
     .inline-gif {
-      height: 64px; /* daha dengeli görünüm için küçültüldü */
+      height: 64px;
       image-rendering: pixelated;
-      vertical-align: middle;
       display: inline-block;
-      margin-bottom: 4px; /* yazı ile hizalamak için küçük ayar */
+      vertical-align: middle;
+      margin-bottom: 0px;
+      transform: translateY(6px); /* Bu satır gif'i yazıya yaklaştırır */
     }
     header p {
       font-size: 1.2rem;
