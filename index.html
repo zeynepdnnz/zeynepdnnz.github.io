@@ -25,23 +25,25 @@
     }
     .header-wrapper {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 2rem;
+      gap: 0.5rem;
     }
-    .header-wrapper img {
-      width: 160px;
-      height: auto;
-      image-rendering: pixelated;
-    }
-    header h1 {
+    .header-wrapper h1 {
       font-size: 3rem;
       font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .inline-gif {
+      height: 48px;
+      margin-right: 12px;
+      image-rendering: pixelated;
     }
     header p {
       font-size: 1.2rem;
       color: #94a3b8;
-      margin-top: 0.5rem;
     }
     nav {
       display: flex;
@@ -116,11 +118,11 @@
 <body>
   <header>
     <div class="header-wrapper">
-      <img src="waving_character.gif" alt="Pixel Character" />
-      <div>
-        <h1>Zeynep Deniz</h1>
-        <p>Computer Science Student | AI & Data Science Enthusiast</p>
-      </div>
+      <h1>
+        <img src="waving_character.gif" alt="Pixel Character" class="inline-gif" />
+        Zeynep Deniz
+      </h1>
+      <p>Computer Science Student | AI & Data Science Enthusiast</p>
     </div>
   </header>
 
@@ -133,23 +135,23 @@
   <section class="projects">
     <div class="card">
       <i class="fas fa-headset"></i>
-      <h2>Under Construction</h2>
-      <p></p>
+      <h2>Call Center Analysis</h2>
+      <p>NLP-based platform for extracting sentiment, topic, and summary from call transcripts using FastAPI and embeddings.</p>
     </div>
     <div class="card">
       <i class="fas fa-chart-pie"></i>
-      <h2>Under Construction</h2>
-      <p>Coming Soon...</p>
+      <h2>Sentiment Dashboard</h2>
+      <p>Data visualization dashboard using Chart.js to display multi-level sentiment insights across calls.</p>
     </div>
     <div class="card">
       <i class="fas fa-microchip"></i>
-      <h2>Under Construction</h2>
-      <p>Coming Soon...</p>
+      <h2>FPGA Timer Design</h2>
+      <p>Verilog-based timer design with overtime mode on Tang Nano 9K, integrated in Digital simulator.</p>
     </div>
     <div class="card">
       <i class="fas fa-project-diagram"></i>
-      <h2>Under Construction</h2>
-      <p>Coming Soon...</p>
+      <h2>Workflow Classifier</h2>
+      <p>Automated call classification workflow using vector databases, LLMs, and topic clustering.</p>
     </div>
   </section>
 
@@ -158,3 +160,4 @@
   </footer>
 </body>
 </html>
+
