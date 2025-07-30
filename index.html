@@ -194,6 +194,14 @@
       from { opacity: 0; transform: scale(0.95); }
       to   { opacity: 1; transform: scale(1); }
     }
+    .modal-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-align: center;
+  }
+
   </style>
 </head>
 <body>
@@ -323,19 +331,22 @@
     }
 
     function toggleDetails(card) {
+      const title = card.querySelector('h2').textContent;
       const detailContent = card.querySelector('.card-details').innerHTML;
-
+    
       const modalOverlay = document.createElement('div');
       modalOverlay.className = 'modal-overlay';
       modalOverlay.innerHTML = `
         <div class="modal">
           <span class="close-button" onclick="closeModal()">×</span>
+          <h2 class="modal-title">${title}</h2>
           ${detailContent}
         </div>
       `;
-
+    
       document.getElementById('modal-root').appendChild(modalOverlay);
     }
+
 
     function closeModal() {
       const modal = document.querySelector('.modal-overlay');
