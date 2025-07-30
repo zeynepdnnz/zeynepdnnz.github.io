@@ -115,7 +115,7 @@
       backdrop-filter: blur(12px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards;
       cursor: pointer;
@@ -143,16 +143,25 @@
       text-decoration: underline;
     }
     .card-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.4s ease;
-      padding-top: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 1rem 1rem;
+      padding: 1rem;
+      margin-top: 0.5rem;
       opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 10;
     }
     .card.open .card-details {
-      max-height: 1000px;
-      padding-top: 1rem;
       opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
     .card i {
       position: absolute;
