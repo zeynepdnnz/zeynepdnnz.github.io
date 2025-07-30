@@ -143,12 +143,22 @@
       text-decoration: underline;
     }
     .card-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.4s ease;
-      padding-top: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      z-index: 10;
       opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
     }
+
     .card.open .card-details {
       max-height: 1000px;
       padding-top: 1rem;
