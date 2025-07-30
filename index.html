@@ -118,25 +118,38 @@
       overflow: hidden;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards;
+      cursor: pointer;
     }
     .card:nth-child(1) { animation-delay: 0.1s; }
     .card:nth-child(2) { animation-delay: 0.3s; }
     .card:nth-child(3) { animation-delay: 0.5s; }
     .card:nth-child(4) { animation-delay: 0.7s; }
+    .card:nth-child(5) { animation-delay: 0.9s; }
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
     .card h2 {
       font-size: 1.6rem;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
     }
-    .card p {
-      color: #cbd5e1;
-      font-size: 1rem;
+    .card-summary {
+      margin-top: 0.5rem;
+      color: #94a3b8;
+      font-weight: 500;
+      user-select: none;
     }
-    body.light-mode .card p {
-      color: #334155;
+    .card:hover .card-summary {
+      text-decoration: underline;
+    }
+    .card-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-top: 0.5rem;
+    }
+    .card.open .card-details {
+      max-height: 500px;
     }
     .card i {
       position: absolute;
@@ -144,6 +157,13 @@
       right: 1.5rem;
       font-size: 1.5rem;
       color: #38bdf8;
+    }
+    .card-details p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+    body.light-mode .card-details p {
+      color: #334155;
     }
     footer {
       text-align: center;
@@ -186,8 +206,8 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about" style="margin-bottom: 4rem;">
-    <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">About Me</h2>
+  <section id="about">
+    <h2>About Me</h2>
     <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; text-align: center; color: #cbd5e1;">
       🚀 I'm <strong>Zeynep Deniz</strong>, a curious mind and a lifelong learner driven by a passion for <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Software Development</strong>.
       <br><br>
@@ -197,70 +217,87 @@
     </p>
   </section>
 
-
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">
+
+      <div class="card" onclick="toggleDetails(this)">
         <i class="fas fa-brain"></i>
         <h2>Semantic Dialogue Analyzer</h2>
-        <p>
-          Built an AI-powered system to analyze and visualize human-to-human conversations. 
-          Transformed dialogues into vector embeddings using <strong>Python</strong> for <strong>semantic search</strong>, 
-          performed <strong>speaker-level sentiment analysis</strong> and <strong>automatic summarization</strong>. 
-          Designed a user-friendly web interface using <strong>HTML, JavaScript, and CSS</strong> to display insights with interactive visualizations.
-        </p>
+        <p class="card-summary">Click to see the details</p>
+        <div class="card-details">
+          <p>
+            Built an AI-powered system to analyze and visualize human-to-human conversations. 
+            Transformed dialogues into vector embeddings using <strong>Python</strong> for <strong>semantic search</strong>, 
+            performed <strong>speaker-level sentiment analysis</strong> and <strong>automatic summarization</strong>. 
+            Designed a user-friendly web interface using <strong>HTML, JavaScript, and CSS</strong> to display insights with interactive visualizations.
+          </p>
+        </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="toggleDetails(this)">
         <i class="fas fa-comments"></i>
         <h2>Howudoin Messaging App</h2>
-        <p>
-          Built a full-stack cross-platform messaging application inspired by <strong>WhatsApp</strong>, using <strong>React Native</strong> for the frontend and <strong>Spring Boot</strong> for the backend.
-          Designed an intuitive user interface and implemented secure user authentication, friend and group management, and real-time chat functionality via RESTful APIs.
-        </p>
+        <p class="card-summary">Click to see the details</p>
+        <div class="card-details">
+          <p>
+            Built a full-stack cross-platform messaging application inspired by <strong>WhatsApp</strong>, using <strong>React Native</strong> for the frontend and <strong>Spring Boot</strong> for the backend.
+            Designed an intuitive user interface and implemented secure user authentication, friend and group management, and real-time chat functionality via RESTful APIs.
+          </p>
+        </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="toggleDetails(this)">
         <i class="fas fa-chart-line"></i>
         <h2>Gold vs Jobs: What the Data Reveals</h2>
-        <p>
-          Conducted an in-depth data analysis project to examine the relationship between the <strong>US stock market</strong> and <strong>unemployment rates</strong>.
-          Using <strong>Python</strong>, we explored historical datasets, visualized seasonal trends, and performed correlation and regression analysis to uncover statistical patterns and economic insights.
-        </p>
+        <p class="card-summary">Click to see the details</p>
+        <div class="card-details">
+          <p>
+            Conducted an in-depth data analysis project to examine the relationship between the <strong>US stock market</strong> and <strong>unemployment rates</strong>.
+            Using <strong>Python</strong>, we explored historical datasets, visualized seasonal trends, and performed correlation and regression analysis to uncover statistical patterns and economic insights.
+          </p>
+        </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="toggleDetails(this)">
         <i class="fas fa-database"></i>
         <h2>E-Commerce Admin Platform</h2>
-        <p>
-          Designed and implemented a database-driven platform for managing e-commerce personnel using <strong>SQL</strong>. 
-          Built a mock relational database, wrote complex queries, and developed <strong>triggers</strong> and <strong>stored procedures</strong> to automate workflows. 
-          Created a user-friendly web interface using <strong>HTML</strong> and <strong>PHP</strong> for seamless data entry and visualization.
-        </p>
+        <p class="card-summary">Click to see the details</p>
+        <div class="card-details">
+          <p>
+            Designed and implemented a database-driven platform for managing e-commerce personnel using <strong>SQL</strong>. 
+            Built a mock relational database, wrote complex queries, and developed <strong>triggers</strong> and <strong>stored procedures</strong> to automate workflows. 
+            Created a user-friendly web interface using <strong>HTML</strong> and <strong>PHP</strong> for seamless data entry and visualization.
+          </p>
+        </div>
       </div>
-      <div class="card">
+
+      <div class="card" onclick="toggleDetails(this)">
         <i class="fas fa-stopwatch"></i>
         <h2>FPGA Digital Stopwatch</h2>
-        <p>
-          Designed and implemented a fully functional <strong>digital stopwatch</strong> using basic logic gates such as <strong>AND, OR, XOR</strong>. 
-          Built and simulated the circuit in a digital logic simulator, then deployed it to an <strong>FPGA board</strong> for real-time operation.
-          Focused on circuit timing, reset/start-stop logic, and hardware-level optimization.
-        </p>
+        <p class="card-summary">Click to see the details</p>
+        <div class="card-details">
+          <p>
+            Designed and implemented a fully functional <strong>digital stopwatch</strong> using basic logic gates such as <strong>AND, OR, XOR</strong>. 
+            Built and simulated the circuit in a digital logic simulator, then deployed it to an <strong>FPGA board</strong> for real-time operation.
+            Focused on circuit timing, reset/start-stop logic, and hardware-level optimization.
+          </p>
+        </div>
       </div>
+
+    </div>
   </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p style="text-align: center; font-size: 1.1rem;">
-    You can reach me via 
-    <a href="https://github.com/zeynepdnnz" target="_blank">GitHub</a>, 
-    <a href="https://www.linkedin.com/in/zeynep-deniz-student-1b8111293" target="_blank">LinkedIn</a>, 
-    or 
-    <a href="mailto:dnzzeynep04@hotmail.com">Email</a>.
-  </p>
-</section>
-
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align: center; font-size: 1.1rem;">
+      You can reach me via 
+      <a href="https://github.com/zeynepdnnz" target="_blank">GitHub</a>, 
+      <a href="https://www.linkedin.com/in/zeynep-deniz-student-1b8111293" target="_blank">LinkedIn</a>, 
+      or 
+      <a href="mailto:dnzzeynep04@hotmail.com">Email</a>.
+    </p>
+  </section>
 
   <footer>
     Built with ❤️ by Zeynep Deniz | <a href="https://github.com/zeynepdnnz">GitHub</a>
@@ -273,6 +310,14 @@
       body.classList.toggle('light-mode');
       btn.textContent = body.classList.contains('light-mode') ? '☀️' : '🌙';
     }
+
+    function toggleDetails(card) {
+      card.classList.toggle("open");
+      const summary = card.querySelector('.card-summary');
+      const isOpen = card.classList.contains("open");
+      summary.textContent = isOpen ? "Click to hide details" : "Click to see the details";
+    }
   </script>
 </body>
 </html>
+
